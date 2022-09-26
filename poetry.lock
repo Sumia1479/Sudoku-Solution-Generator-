@@ -98,6 +98,14 @@ optional = false
 python-versions = ">=3.7"
 
 [[package]]
+name = "dokusan"
+version = "0.1.0a6"
+description = "Sudoku generator and solver with a step-by-step guidance"
+category = "main"
+optional = false
+python-versions = ">=3.8,<4.0"
+
+[[package]]
 name = "flask"
 version = "2.2.2"
 description = "A simple framework for building complex web applications."
@@ -477,7 +485,7 @@ testing = ["pytest (>=6)", "pytest-checkdocs (>=2.4)", "pytest-flake8", "pytest-
 [metadata]
 lock-version = "1.1"
 python-versions = ">=3.8.0,<3.9"
-content-hash = "4ceda468c6ce7d0b641f0c244f742d3a912100cd87f29fbe250fdc0a2528f740"
+content-hash = "89f3a5c22d59cd6d69d6f9b804ba8ed063f4537fa8b13507a8da04667cd8d4a4"
 
 [metadata.files]
 aiohttp = []
@@ -489,6 +497,7 @@ charset-normalizer = []
 click = []
 colorama = []
 debugpy = []
+dokusan = []
 flask = []
 frozenlist = []
 idna = []
