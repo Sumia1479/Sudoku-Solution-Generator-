@@ -1,3 +1,5 @@
+
+""" 2-D array sudoku Board """
 board = [
   [7,8,0,4,0,0,1,2,0],
   [6,0,0,0,7,5,0,0,9],
@@ -5,12 +7,25 @@ board = [
   [0,0,7,0,4,0,2,6,0],
   [0,0,1,0,5,0,9,3,0],
   [9,0,4,0,6,0,0,0,5],
-  [0,7,0,3,0,0,0,1,2],
+  [0,7,0,3,0,0,0,0,2],
   [1,2,0,0,0,7,4,0,0],
   [0,4,9,2,0,6,0,0,7]
 ]
 
-# must pass a full and vaild baored 
+"""Solve the Sudoku boareed using Backtracking algorithm 
+    
+    Parameters
+    ----------
+    board : 2-D array sudoku Board
+ 
+    Returns
+    -------
+    True when the bored is solve/there is no empty spaces left
+
+    Pre-Condition
+    -------
+    Must pass a full and vaild baord as it's arameters
+"""
 def solve(board):
   # find an empty space 
   find = getEmpty(board)
@@ -18,7 +33,7 @@ def solve(board):
   if not find:
     return True
   else:
-    # set the row and col to the positions of the empty square (i,j)
+    #set the row and col to the positions of the empty square (i,j)
     row, col = find
   #check if adding a value between 1-9 at the position of the empty square (row, col) is valid 
   for i in range(1,10):
@@ -52,8 +67,32 @@ def valid(board, num, pos):
          # if all the element in the box is equal to position, excludeing position itself return false 
          return False
   return True
-  
-  
+
+"""Display Sudoku Board
+    
+    Parameters
+    ----------
+    board : 2-D array sudoku Board
+ 
+    Returns
+    -------
+    None
+
+    Post-Condition
+    -------
+    Prints out the Sudoku Board in this format:
+    7 8 0  | 4 0 0  | 1 2 0
+    6 0 0  | 0 7 5  | 0 0 9
+    0 0 0  | 6 0 1  | 0 7 8
+    - - - - - - - - - - - -
+    0 0 7  | 0 4 0  | 2 6 0
+    0 0 1  | 0 5 0  | 9 3 0
+    9 0 4  | 0 6 0  | 0 0 5
+    - - - - - - - - - - - -
+    0 7 0  | 3 0 0  | 0 2 2
+    1 2 0  | 0 0 7  | 4 0 0
+    0 4 9  | 2 0 6  | 0 0 7
+ """  
 def displayBoard(board):
   for i in range(len(board)):
     if (i%3 == 0 and i != 0):
@@ -65,17 +104,25 @@ def displayBoard(board):
         print(board[i][j])
       else:
         print(str(board[i][j]) + " ",end="")
-
-# Given a Boared this function find the next empty(0) space and returns the space row and colunm. Loops through the boared to find a space equal to zero
+        
+"""Given a Boared this function find the next empty(0) space and returns the space row and colunm. Loops through the boared to find a space equal to zero
+    
+    Parameters
+    ----------
+    board : 2-D array sudoku Board
+ 
+    Returns
+    -------
+    A position of an empty space or None  
+"""
 def getEmpty(board): 
     for i in range(len(board)):
         for j in range(len(board[0])):
             if board[i][j] == 0:
                 return (i, j)  # row, col
-
     return None
 
-
+#Calls functions
 displayBoard(board)
 solve(board)
 print("________________________")
